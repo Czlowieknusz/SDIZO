@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stddef.h>
 #include "../include/lista.h"
 
 using namespace std;
@@ -100,7 +101,6 @@ void Lista::dodajGdziekolwiek(int wartosc, int pozycja)
 	// w celu przyspieszenia obliczeñ
 	if(pozycja < rozmiar / 2)
 	{
-        cout << "Pierwsza połowa" << endl;
 		// Przypisz pierwszy element za aktualny
 		aktualnyElement = pierwszyElement;
 
@@ -112,37 +112,33 @@ void Lista::dodajGdziekolwiek(int wartosc, int pozycja)
 	}
 	else
 	{
-        cout << "Druga połowa" << endl;
 		//Przypisz element ostatni za aktualny
 		aktualnyElement = ostatniElement;
 
-		cout << "przed petla"<<endl;
 		// Przesuñ wszystkie elementy o jedn¹ pozycjê wstecz
 		for(int i = 0; i < rozmiar - pozycja; ++i)
 		{
-		    cout << "Wartosc aktualnego elementu w iteracji: " <<aktualnyElement->wartosc<<endl;
 			aktualnyElement = aktualnyElement->poprzedni;
 		}
 	}
-    cout << "Aktualny element: " << aktualnyElement->wartosc<<endl;
-    cout << "Aktualny nastepny: " << aktualnyElement->nastepny<<endl;
-    cout << "Aktualny poprzedni: " << aktualnyElement->poprzedni<<endl;
 	// Stwórz nowy element listy z podanymi parametrami
 	ElementListy* nowyElementListy = new ElementListy(wartosc, aktualnyElement->nastepny, aktualnyElement);
 
-    cout << "Utworzono nowy element: " << ostatniElement->wartosc<<endl;
 	// Przypisz nowy element na danej pozycji listy
 	aktualnyElement->nastepny->poprzedni = nowyElementListy;
 	aktualnyElement->nastepny = nowyElementListy;
-    cout << "Nowy został okalany: " << ostatniElement->wartosc<<endl;
 
 	// Inkrementacja rozmiaru
 	rozmiar++;
-    cout << "Ostatni element: " << ostatniElement->wartosc<<endl;
 }
 
 void Lista::usunPierwszy()
 {
+    if(pierwszyElement==NULL)
+    {
+        cout << "Lista jest pusta."<<endl;
+        return;
+    }
 	// Przypisz drugi element jako aktualny
 	aktualnyElement = pierwszyElement->nastepny;
 
@@ -170,6 +166,11 @@ void Lista::usunPierwszy()
 
 void Lista::usunOstatni()
 {
+    if(pierwszyElement==NULL)
+    {
+        cout << "Lista jest pusta."<<endl;
+        return;
+    }
 	// Przypisz przedostatni element jako aktualny
 	aktualnyElement = ostatniElement->poprzedni;
 
@@ -198,7 +199,7 @@ void Lista::usunOstatni()
 void Lista::usunKtorykolwiek(int pozycja)
 {
 	//Sprawdzenie czy na liœcie istnieje dana pozycja
-	if(pozycja < 0 || rozmiar > pozycja)
+	if(pozycja < 0 || pozycja >= rozmiar)
 	{
 		cout << "Lista nie posiada danej pozycji [" << pozycja << "]" << endl;
 		return;
@@ -225,7 +226,7 @@ void Lista::usunKtorykolwiek(int pozycja)
 		aktualnyElement = pierwszyElement;
 
 		//Przesuñ aktualnyElement do danej pozycji
-		for(int i = 1; i < pozycja - 1; ++i)
+		for(int i = 1; i < pozycja; ++i)
 		{
 			aktualnyElement = aktualnyElement->nastepny;
 		}
@@ -236,20 +237,19 @@ void Lista::usunKtorykolwiek(int pozycja)
 		aktualnyElement = ostatniElement;
 
 		// Przesuñ aktualnyElement do danej pozycji
-		for (int i = 0; i < rozmiar - pozycja - 1; ++i)
+		for (int i = 0; i < rozmiar - pozycja; ++i)
 		{
 			aktualnyElement = aktualnyElement->poprzedni;
 		}
 	}
 
-	// Stwórz nowy element listy z podanymi parametrami
+	// Stwórz nowy wskaźnik na element do usunięcia
 	ElementListy* nowyElementListy = aktualnyElement->nastepny;
 
-	// Przypisz nowy element w odpowiednim miejscu tablicy
-	aktualnyElement ->nastepny = nowyElementListy ->nastepny;
-	aktualnyElement ->nastepny->poprzedni = nowyElementListy;
+	aktualnyElement->nastepny=nowyElementListy->nastepny;
+	aktualnyElement->nastepny->poprzedni=aktualnyElement;
 
-	delete[] nowyElementListy;
+	delete nowyElementListy;
 
 	// Dekrementuj rozmiar
 	rozmiar--;

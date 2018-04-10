@@ -21,8 +21,9 @@
 
 1522073378 q:\studia\sdizo\projektpierwszy\sdizo\include\elementlisty.h
 
-1523390255 source:q:\studia\sdizo\projektpierwszy\sdizo\src\lista.cpp
+1523400341 source:q:\studia\sdizo\projektpierwszy\sdizo\src\lista.cpp
 	<iostream>
+	<stddef.h>
 	"../include/lista.h"
 
 1522073567 q:\studia\sdizo\projektpierwszy\sdizo\include\lista.h
