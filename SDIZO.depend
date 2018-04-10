@@ -1,0 +1,54 @@
+# depslib dependency file v1.0
+1523114581 source:q:\studia\sdizo\projektpierwszy\sdizo\main.cpp
+	<iostream>
+	"include/kopiec.h"
+	"include/lista.h"
+	"include/tablica.h"
+	"include/dzialania.h"
+
+1522105015 source:q:\studia\sdizo\projektpierwszy\sdizo\src\dzialaniaauto.cpp
+
+1523111061 source:q:\studia\sdizo\projektpierwszy\sdizo\src\licznikczasu.cpp
+	"../include/licznikCzasu.h"
+	<chrono>
+
+1523227888 q:\studia\sdizo\projektpierwszy\sdizo\include\licznikczasu.h
+	<chrono>
+
+1523111101 source:q:\studia\sdizo\projektpierwszy\sdizo\src\elementlisty.cpp
+	<iostream>
+	"../include/elementListy.h"
+
+1522073378 q:\studia\sdizo\projektpierwszy\sdizo\include\elementlisty.h
+
+1523390255 source:q:\studia\sdizo\projektpierwszy\sdizo\src\lista.cpp
+	<iostream>
+	"../include/lista.h"
+
+1522073567 q:\studia\sdizo\projektpierwszy\sdizo\include\lista.h
+	"elementListy.h"
+
+1523111224 source:q:\studia\sdizo\projektpierwszy\sdizo\src\kopiec.cpp
+	<iostream>
+	"../include/kopiec.h"
+	<cstddef>
+
+1522112194 q:\studia\sdizo\projektpierwszy\sdizo\include\kopiec.h
+	"tablica.h"
+
+1523114440 q:\studia\sdizo\projektpierwszy\sdizo\include\tablica.h
+
+1523214695 source:q:\studia\sdizo\projektpierwszy\sdizo\src\tablica.cpp
+	<iostream>
+	"../include/tablica.h"
+
+1523390024 source:q:\studia\sdizo\projektpierwszy\sdizo\src\dzialania.cpp
+	<iostream>
+	"../include/licznikCzasu.h"
+	"../include/tablica.h"
+	"../include/kopiec.h"
+	"../include/lista.h"
+	"../include/dzialania.h"
+
+1522103599 q:\studia\sdizo\projektpierwszy\sdizo\include\dzialania.h
+
