@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1523114581 source:q:\studia\sdizo\projektpierwszy\sdizo\main.cpp
+1525889110 source:q:\studia\sdizo\projektpierwszy\sdizo\main.cpp
 	<iostream>
 	"include/kopiec.h"
 	"include/lista.h"
@@ -21,7 +21,7 @@
 
 1522073378 q:\studia\sdizo\projektpierwszy\sdizo\include\elementlisty.h
 
-1523400341 source:q:\studia\sdizo\projektpierwszy\sdizo\src\lista.cpp
+1523400907 source:q:\studia\sdizo\projektpierwszy\sdizo\src\lista.cpp
 	<iostream>
 	<stddef.h>
 	"../include/lista.h"
@@ -29,7 +29,7 @@
 1522073567 q:\studia\sdizo\projektpierwszy\sdizo\include\lista.h
 	"elementListy.h"
 
-1523111224 source:q:\studia\sdizo\projektpierwszy\sdizo\src\kopiec.cpp
+1523548044 source:q:\studia\sdizo\projektpierwszy\sdizo\src\kopiec.cpp
 	<iostream>
 	"../include/kopiec.h"
 	<cstddef>
@@ -43,13 +43,30 @@
 	<iostream>
 	"../include/tablica.h"
 
-1523390024 source:q:\studia\sdizo\projektpierwszy\sdizo\src\dzialania.cpp
+1525896326 source:q:\studia\sdizo\projektpierwszy\sdizo\src\dzialania.cpp
 	<iostream>
 	"../include/licznikCzasu.h"
 	"../include/tablica.h"
 	"../include/kopiec.h"
 	"../include/lista.h"
+	"../include/RBDrzewo.h"
 	"../include/dzialania.h"
 
-1522103599 q:\studia\sdizo\projektpierwszy\sdizo\include\dzialania.h
+1525889270 q:\studia\sdizo\projektpierwszy\sdizo\include\dzialania.h
+
+1525887939 source:q:\studia\sdizo\projektpierwszy\sdizo\src\elementdrzewa.cpp
+	"elementDrzewa.h"
+
+1525887939 q:\studia\sdizo\projektpierwszy\sdizo\include\elementdrzewa.h
+
+1525968724 source:q:\studia\sdizo\projektpierwszy\sdizo\src\rbdrzewo.cpp
+	"RBDrzewo.h"
+	"elementDrzewa.h"
+	<string>
+	<iostream>
+	<cstddef>
+
+1525939585 q:\studia\sdizo\projektpierwszy\sdizo\include\rbdrzewo.h
+	"elementDrzewa.h"
+	<string>
 

@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-	//Inicjalizacja klasy testuj¹cej
+    //Inicjalizacja klasy testuj¹cej
     Dzialania dzialania;
     int wybor = -1;
     //string tn = "n";
@@ -17,7 +17,8 @@ int main(int argc, char** argv)
 
 
     //Pocz¹tkowe menu wyboru
-    while (wybor != 0) {
+    while (wybor != 0)
+    {
         cout << "Wybierz test:" << endl;
         cout << "    1. Tablica Dynamiczna" << endl;
         cout << "    2. Lista" << endl;
@@ -28,39 +29,46 @@ int main(int argc, char** argv)
         cin >> wybor;
 
         //Zamknij, je¿eli wybrano 0
-        if (wybor == 0) return 0;
+        if (wybor == 0)
+            return 0;
 
         //cout << "Automatyzowaæ test? (t/n): ";
         //cin >> tn;
 
-        switch (wybor) {
-            default:
-                cout << "B³êdny wybór!" << endl;
-                break;
+        switch (wybor)
+        {
+        default:
+            cout << "B³êdny wybór!" << endl;
+            break;
 
-            case 0:
-                break;
+        case 0:
+            break;
 
-            case 1:
-                cout << "Rozpoczynam test tablicy dynamicznej..." << endl;
-                //if (tn == "t") testyAutomatyczne.testTablicy();
-                //else testy.testTablicy();
-                dzialania.dzialaniaTablica();
-                break;
+        case 1:
+            cout << "Rozpoczynam test tablicy dynamicznej..." << endl;
+            //if (tn == "t") testyAutomatyczne.testTablicy();
+            //else testy.testTablicy();
+            dzialania.dzialaniaTablica();
+            break;
 
-            case 2:
-                cout << "Rozpoczynam test listy..." << endl;
-                //if (tn == "t") testyAutomatyczne.testListy();
-                //else testy.testListy();
-                dzialania.dzialaniaLista();
-                break;
+        case 2:
+            cout << "Rozpoczynam test listy..." << endl;
+            //if (tn == "t") testyAutomatyczne.testListy();
+            //else testy.testListy();
+            dzialania.dzialaniaLista();
+            break;
 
-            case 3:
-                cout << "Rozpoczynam test kopca binarnego..." << endl;
-                //if (tn == "t") testyAutomatyczne.testKopca();
-                //else testy.testKopca();
-                dzialania.dzialaniaKopiec();
-                break;
+        case 3:
+            cout << "Rozpoczynam test kopca binarnego..." << endl;
+            //if (tn == "t") testyAutomatyczne.testKopca();
+            //else testy.testKopca();
+            dzialania.dzialaniaKopiec();
+            break;
+
+        case 4:
+            cout<< "Rozpoczynam test drzewa binarnego..." << endl;
+            dzialania.dzialaniaRBT();
+            break;
         }
     }
     return 0;

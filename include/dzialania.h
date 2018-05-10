@@ -6,4 +6,6 @@ public:
     void dzialaniaLista();
 
     void dzialaniaKopiec();
+
+    void dzialaniaRBT();
 };
