@@ -196,8 +196,7 @@ void RBDrzewo::usunWartosc(int wartosc)
     znajdzElement(wartosc, korzen, elementUsuwany);
     if(elementUsuwany == 0)
         return;
-    cout << "kupa kupa kupa kupa" << endl;
-    cout << elementUsuwany->kolor<< " - " << elementUsuwany->wartosc<<endl;
+    wypiszWezel(elementUsuwany, "elemUsuw");
 
     ElementDrzewa* W,* Y,* Z;
 
@@ -205,45 +204,53 @@ void RBDrzewo::usunWartosc(int wartosc)
         Y = elementUsuwany;
     else
         Y = znajdzNastepnyElement(elementUsuwany);
-    cout <<"Nastepny element po wybranym: "<< Y->wartosc << " - " << Y->kolor<<endl;
-
+    wypiszWezel(Y,"Y");
     if(Y->lewySyn != &s)
         Z = Y->lewySyn;
     else
         Z = Y->prawySyn;
 
     Z->ojciec = Y->ojciec;
-
+    wypiszWezel(Z,"Z");
     if(Y->ojciec == &s)
         korzen = Z;
     else if(Y == Y->ojciec->lewySyn)
         Y->ojciec->lewySyn=Z;
     else
         Y->ojciec->prawySyn=Z;
-
+    wypiszWezel(Y->ojciec,"Ojciec Y");
+    wypiszWezel(korzen,"Korzen");
     if(Y != elementUsuwany)
         elementUsuwany->wartosc = Y->wartosc;
-
+    wypiszWezel(Y,"Y");
     if(Y->kolor == 'B')                 // Naprawa drzewa czerwono-czarnego
     {
+        cout << "Wewnatrz ifa" << endl;
         while((Z != korzen) && (Z->kolor=='B'))
         {
+            cout << "Petla."<<endl;
             if(Z== Z->ojciec->lewySyn)  // Przypadek 1
             {
                 W = Z->ojciec->prawySyn;
-
+                wypiszWezel(W,"W");
                 if(W->kolor == 'R')
                 {
                     W->kolor = 'B';
                     Z->ojciec->kolor='R';
                     rotL(Z->ojciec);
                     W = Z->ojciec->prawySyn;
+                    cout << "Pierwszy if: "<<endl;
+                    wypiszWezel(W,"W");
+                    wypiszWezel(Z,"Z");
                 }
 
                 if((W->lewySyn->kolor == 'B') && (W->prawySyn->kolor == 'B'))   // Przypadek 2
                 {
                     W->kolor = 'R';
                     Z = Z->ojciec;
+                    cout << "Drugi if: "<<endl;
+                    wypiszWezel(W,"W");
+                    wypiszWezel(Z,"Z");
                     continue;
                 }
 
@@ -253,16 +260,23 @@ void RBDrzewo::usunWartosc(int wartosc)
                     W->kolor= 'R';
                     rotR(W);
                     W = Z->ojciec->prawySyn;
+                    cout << "Trzeci if: "<<endl;
+                    wypiszWezel(W,"W");
+                    wypiszWezel(Z,"Z");
                 }
 
                 W->kolor = Z->ojciec->kolor;        // Przypadek 4
                 Z->ojciec->kolor = 'B';
                 W->prawySyn->kolor = 'B';
                 rotL(Z->ojciec);
-                Z = korzen;                         // To zakonczy petle
+                Z = korzen;
+                cout<< "Czwarty przypadek: "<<endl;
+                wypiszWezel(W,"W");
+                wypiszWezel(Z,"Z");                         // To zakonczy petle
             }
             else                                    // Przypadki lustrzane
             {
+                cout << "else: "<<endl;
                 W = Z->ojciec->lewySyn;
 
                 if(W->kolor=='R')                   // Przypadek 1
@@ -271,12 +285,18 @@ void RBDrzewo::usunWartosc(int wartosc)
                     Z->ojciec->kolor = 'R';
                     rotR(Z->ojciec);
                     W = Z->ojciec->lewySyn;
+                    cout << "Pierwszy if: "<<endl;
+                    wypiszWezel(W,"W");
+                    wypiszWezel(Z,"Z");
                 }
 
                 if((W->lewySyn->kolor == 'B') && (W->prawySyn->kolor == 'B'))       // Przypadek 2
                 {
                     W->kolor = 'R';
                     Z = Z->ojciec;
+                    cout << "Drugi if: "<<endl;
+                    wypiszWezel(W,"W");
+                    wypiszWezel(Z,"Z");
                     continue;
                 }
 
@@ -286,6 +306,9 @@ void RBDrzewo::usunWartosc(int wartosc)
                     W->kolor='R';
                     rotL(W);
                     W = Z->ojciec->lewySyn;
+                    cout << "Trzeci if: "<<endl;
+                    wypiszWezel(W,"W");
+                    wypiszWezel(Z,"Z");
                 }
 
                 W->kolor = Z->ojciec->kolor;;
@@ -293,10 +316,14 @@ void RBDrzewo::usunWartosc(int wartosc)
                 W->lewySyn->kolor = 'B';
                 rotR(Z->ojciec);
                 Z = korzen;
+                cout << "Czwarty if: "<<endl;
+                wypiszWezel(W,"W");
+                wypiszWezel(Z,"Z");
             }
 
             Z->kolor = 'B';
-
+            wypiszWezel(W,"W");
+            wypiszWezel(Z,"Z");
             delete Y;
         }
     }
@@ -400,3 +427,10 @@ void RBDrzewo::drukujDrzewo(string sp, string sn, ElementDrzewa* p)
         drukujDrzewo(t + cp, cl, p->lewySyn);
     }
 }
+
+void RBDrzewo::wypiszWezel(ElementDrzewa* p, string s)
+{
+    cout << "Wartosc "<<s<<": " << p->wartosc << ", kolor: " << p->kolor << ", ojciec: "
+         << p->ojciec->wartosc << ", prawy syn: " << p->prawySyn->wartosc << ", lewy syn: " << p->lewySyn->wartosc << endl;
+}
+

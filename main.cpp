@@ -24,6 +24,7 @@ int main(int argc, char** argv)
         cout << "    2. Lista" << endl;
         cout << "    3. Kopiec Binarny" << endl;
         cout << "    4. Drzewo Czerowno-Czarne" << endl;
+        cout << "    5. Drzewo AVL" << endl;
         cout << "    0. Wyjœcie" << endl << endl;
         cout << "Wybór: ";
         cin >> wybor;
@@ -59,15 +60,19 @@ int main(int argc, char** argv)
             break;
 
         case 3:
-            cout << "Rozpoczynam test kopca binarnego..." << endl;
+            cout << "Rozpoczynam test kopca..." << endl;
             //if (tn == "t") testyAutomatyczne.testKopca();
             //else testy.testKopca();
             dzialania.dzialaniaKopiec();
             break;
 
         case 4:
-            cout<< "Rozpoczynam test drzewa binarnego..." << endl;
+            cout<< "Rozpoczynam test drzewa czerwono-czarnego..." << endl;
             dzialania.dzialaniaRBT();
+            break;
+        case 5:
+            cout << "Rozpoczynam test drzewa AVL..." << endl;
+            dzialania.dzialaniaAVL();
             break;
         }
     }

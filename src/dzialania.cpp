@@ -4,6 +4,8 @@
 #include "../include/kopiec.h"
 #include "../include/lista.h"
 #include "../include/RBDrzewo.h"
+#include "../include/drzewoRB.h"
+#include "../include/drzewoAVL.h"
 #include "../include/dzialania.h"
 
 using namespace std;
@@ -281,12 +283,75 @@ void Dzialania::dzialaniaKopiec()
 void Dzialania::dzialaniaRBT()
 {
     LicznikCzasu licznikCzasu;
-    RBDrzewo drzewo;
+    drzewoRB drzewo;
     int wybor = 99;
     int wartosc;
     while (wybor != 0)
     {
         cout << "Wybierz funkcję drzewa:" << endl;
+        cout << "    1. Dodaj" << endl;
+        cout << "    2. Usuń" << endl;
+        cout << "    3. Wyszukaj" << endl;
+        cout << "    4. Wydrukuj drzewo" << endl;
+        cout << "    0. Wyjście" << endl << endl;
+        cout << "Wybór: ";
+        cin >> wybor;
+        switch (wybor)
+        {
+        default:
+            cout << "Błędny wybór!" << endl;
+            break;
+
+        case 0:
+            break;
+
+        case 1:
+            cout << "Podaj wartość: ";
+            cin >> wartosc;
+            licznikCzasu.czasStart();
+            drzewo.wstawWezel(wartosc);
+            licznikCzasu.czasStop();
+            cout << "Czas operacji: " << licznikCzasu.czasOperacji() << "ms" << endl;
+            break;
+
+        case 2:
+            cout << "Podaj wartość: ";
+            cin >> wartosc;
+            licznikCzasu.czasStart();
+            drzewo.usunWezel(drzewo.znajdzWezel(wartosc));
+            licznikCzasu.czasStop();
+            cout << "Czas operacji: " << licznikCzasu.czasOperacji() << "ms" << endl;
+            break;
+
+        case 3:
+            cout << "Podaj wartość: ";
+            cin >> wartosc;
+            licznikCzasu.czasStart();
+            drzewo.sprawdzObecnosc(wartosc);
+            licznikCzasu.czasStop();
+            cout << "Czas operacji: " << licznikCzasu.czasOperacji() << "ms" << endl;
+            break;
+
+        case 4:
+            licznikCzasu.czasStart();
+            drzewo.drukujRBT();
+            licznikCzasu.czasStop();
+            cout << "Czas operacji: " << licznikCzasu.czasOperacji() << "ms" << endl;
+            break;
+        }
+
+    }
+}
+
+void Dzialania::dzialaniaAVL()
+{
+    LicznikCzasu licznikCzasu;
+    drzewoAVL drzewo;
+    int wybor = 99;
+    int wartosc;
+    while (wybor != 0)
+    {
+        cout << "Wybierz funkcję drzewa AVL:" << endl;
         cout << "    1. Dodaj" << endl;
         cout << "    2. Usuń" << endl;
         cout << "    3. Wyszukaj" << endl;
@@ -316,7 +381,7 @@ void Dzialania::dzialaniaRBT()
             cout << "Podaj wartość: ";
             cin >> wartosc;
             licznikCzasu.czasStart();
-            drzewo.usunWartosc(wartosc);
+            drzewo.usunElement(wartosc);
             licznikCzasu.czasStop();
             cout << "Czas operacji: " << licznikCzasu.czasOperacji() << "ms" << endl;
             break;
@@ -325,7 +390,7 @@ void Dzialania::dzialaniaRBT()
             cout << "Podaj wartość: ";
             cin >> wartosc;
             licznikCzasu.czasStart();
-            drzewo.sprawdzObecnosc(wartosc);
+            drzewo.wydrukujElement(wartosc);
             licznikCzasu.czasStop();
             cout << "Czas operacji: " << licznikCzasu.czasOperacji() << "ms" << endl;
             break;

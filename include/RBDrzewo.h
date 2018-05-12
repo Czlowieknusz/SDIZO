@@ -28,6 +28,7 @@ class RBDrzewo
         void usunElement(ElementDrzewa*);
         void usunWartosc(int);
         void usunDrzewo(ElementDrzewa*);
+        void wypiszWezel(ElementDrzewa*,string);
 
         RBDrzewo();
         ~RBDrzewo();

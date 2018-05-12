@@ -8,4 +8,6 @@ public:
     void dzialaniaKopiec();
 
     void dzialaniaRBT();
+
+    void dzialaniaAVL();
 };

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1525889110 source:q:\studia\sdizo\projektpierwszy\sdizo\main.cpp
+1526038880 source:q:\studia\sdizo\projektpierwszy\sdizo\main.cpp
 	<iostream>
 	"include/kopiec.h"
 	"include/lista.h"
@@ -43,30 +43,57 @@
 	<iostream>
 	"../include/tablica.h"
 
-1525896326 source:q:\studia\sdizo\projektpierwszy\sdizo\src\dzialania.cpp
+1526130868 source:q:\studia\sdizo\projektpierwszy\sdizo\src\dzialania.cpp
 	<iostream>
 	"../include/licznikCzasu.h"
 	"../include/tablica.h"
 	"../include/kopiec.h"
 	"../include/lista.h"
 	"../include/RBDrzewo.h"
+	"../include/drzewoRB.h"
+	"../include/drzewoAVL.h"
 	"../include/dzialania.h"
 
-1525889270 q:\studia\sdizo\projektpierwszy\sdizo\include\dzialania.h
+1526037781 q:\studia\sdizo\projektpierwszy\sdizo\include\dzialania.h
 
 1525887939 source:q:\studia\sdizo\projektpierwszy\sdizo\src\elementdrzewa.cpp
 	"elementDrzewa.h"
 
 1525887939 q:\studia\sdizo\projektpierwszy\sdizo\include\elementdrzewa.h
 
-1525968724 source:q:\studia\sdizo\projektpierwszy\sdizo\src\rbdrzewo.cpp
+1526122808 source:q:\studia\sdizo\projektpierwszy\sdizo\src\rbdrzewo.cpp
 	"RBDrzewo.h"
 	"elementDrzewa.h"
 	<string>
 	<iostream>
 	<cstddef>
 
-1525939585 q:\studia\sdizo\projektpierwszy\sdizo\include\rbdrzewo.h
+1526122808 q:\studia\sdizo\projektpierwszy\sdizo\include\rbdrzewo.h
+	"elementDrzewa.h"
+	<string>
+
+1526030198 source:q:\studia\sdizo\projektpierwszy\sdizo\src\elementavl.cpp
+	"ElementAVL.h"
+
+1526038899 q:\studia\sdizo\projektpierwszy\sdizo\include\elementavl.h
+
+1526051659 source:q:\studia\sdizo\projektpierwszy\sdizo\src\drzewoavl.cpp
+	"drzewoAVL.h"
+	"ElementAVL.h"
+	<iostream>
+	<iomanip>
+
+1526051168 q:\studia\sdizo\projektpierwszy\sdizo\include\drzewoavl.h
+	"ElementAVL.h"
+	<string>
+
+1526130596 source:q:\studia\sdizo\projektpierwszy\sdizo\src\drzeworb.cpp
+	"drzewoRB.h"
+	<string>
+	<cstdlib>
+	<iostream>
+
+1526130798 q:\studia\sdizo\projektpierwszy\sdizo\include\drzeworb.h
 	"elementDrzewa.h"
 	<string>
 

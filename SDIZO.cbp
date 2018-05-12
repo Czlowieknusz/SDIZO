@@ -35,7 +35,9 @@
 			<Add option="-std=c++0x" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/ElementAVL.h" />
 		<Unit filename="include/RBDrzewo.h" />
+		<Unit filename="include/drzewoAVL.h" />
 		<Unit filename="include/dzialania.h" />
 		<Unit filename="include/dzialaniaAuto.h" />
 		<Unit filename="include/elementDrzewa.h" />
@@ -45,7 +47,9 @@
 		<Unit filename="include/lista.h" />
 		<Unit filename="include/tablica.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/ElementAVL.cpp" />
 		<Unit filename="src/RBDrzewo.cpp" />
+		<Unit filename="src/drzewoAVL.cpp" />
 		<Unit filename="src/dzialania.cpp" />
 		<Unit filename="src/dzialaniaAuto.cpp" />
 		<Unit filename="src/elementDrzewa.cpp" />
